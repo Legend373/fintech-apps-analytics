@@ -3,3 +3,6 @@ numpy
 matplotlib
 seaborn
 jupyter
+google_play_scraper
+dotenv
+tqdm
