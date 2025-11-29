@@ -102,6 +102,24 @@ class ReviewPreprocessor:
         else:
           print("No duplicates found")
 
+    def filter_english_reviews(self):
+       """Filter out Amharic and keep only English reviews"""
+       print("\n[NEW] Filtering English-only reviews...")
+
+       # Regex: match English letters, numbers, punctuation, and spaces
+       english_pattern = re.compile(r'^[A-Za-z0-9.,!?;:\'\"()\-\s]+$')
+
+       before_count = len(self.df)
+
+       # Keep only rows where review_text matches English pattern
+       self.df = self.df[self.df['review_text'].apply(
+        lambda x: bool(english_pattern.match(str(x)))
+       )]
+
+       removed = before_count - len(self.df)
+       self.stats['non_english_removed'] = removed
+
+       print(f"Removed {removed} non-English reviews")
 
 
     def check_missing_data(self):
@@ -403,6 +421,7 @@ class ReviewPreprocessor:
         self.remove_duplicates()  
         self.normalize_dates()
         self.clean_text()
+        self.filter_english_reviews()  
         self.validate_ratings()
         self.prepare_final_output()
 
