@@ -26,3 +26,9 @@ This script cleans and preprocesses the scraped reviews data.
 - Handles missing values
 - Normalizes dates
 - Cleans text data
+
+3. Semantic and Theme Analysis
+
+- process the semantic score using vader+txtblob
+- extraction of frequent keyword or TF-IDF
+- Cluster into 3–5 themes per bank (e.g., UI, reliability) based on the related keyword    dictionary.
