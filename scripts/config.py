@@ -15,6 +15,13 @@ APP_IDS = {
     'Dashenbank': os.getenv('DASHEN_APP_ID', 'com.dashen.dashensuperapp')
 
 }
+#Database Credentials
+DB_CONFIG = {
+    'host': os.getenv('DB_HOST', 'localhost'),
+    'database': os.getenv('DB_NAME', 'bank_reviews'),
+    'user': os.getenv('DB_USER','legend'),
+    'password': os.getenv('DB_PASSWORD')
+}
 
 # Bank Names Mapping
 BANK_NAMES = {
@@ -38,7 +45,8 @@ DATA_PATHS = {
     'raw_reviews': '../../data/raw/reviews_raw.csv',
     'processed_reviews': '../../data/processed/reviews_processed.csv',
     'sentiment_results': '../../data/processed/reviews_with_sentiment.csv',
-    'final_results': '../../data/processed/reviews_final.csv'
+    'reviews_with_sentiment':'data/processed/reviews_with_sentiment.csv',
+    'final_results': 'data/processed/reviews_final.csv'
 }
 
 
